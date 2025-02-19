@@ -33,7 +33,7 @@ class ClubController extends Controller
     public function show(string $id) : JsonResponse
     {
         // GET ONE LOCATION
-        $club = Club::findOrFail($id)->with("events")->first();
+        $club = Club::with("events")->findOrFail($id);
         return response()->json($club,200);
     }
 
